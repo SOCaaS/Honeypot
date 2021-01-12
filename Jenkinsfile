@@ -14,13 +14,13 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'echo ${BUILD_NUMBER}'
-                sh 'docker build --network main-overlay -f dockerfile --tag cowrie-server:${BUILD_NUMBER} .'
+                sh 'docker build --network main-overlay -f Dockerfile --tag cowrie-server:${BUILD_NUMBER} .'
            }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'TAG=${BUILD_NUMBER} /usr/bin/docker-compose -p "cowrie" up -d --build'
+                sh 'TAG=${BUILD_NUMBER} /usr/bin/docker-compose up -d --build'
             }
         }
     }
