@@ -10,9 +10,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "2222:2222"
-      - "2223:2223"
     volumes:
       - cowrie-etc:/cowrie/cowrie-git/etc
       - cowrie-var:/cowrie/cowrie-git/var
+    networks:
+      - default
+
+networks:
+  default:
+    external: 
+       name: main-overlay
