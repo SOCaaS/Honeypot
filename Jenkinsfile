@@ -20,7 +20,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'TAG=${BUILD_NUMBER} /usr/bin/docker-compose up -d --build'
+                sh 'TAG=${BUILD_NUMBER} /usr/bin/docker-compose down -v'
             }
         }
     }
