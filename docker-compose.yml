@@ -1,20 +1,17 @@
-version: '2.0'
-
-volumes:
-  cowrie-etc:
-  cowrie-var:
+version: '2'
 
 services:
-  cowrie:
+
+# Snare service
+  snare:
+    build: .
+    container_name: snare
     restart: always
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - cowrie-etc:/cowrie/cowrie-git/etc
-      - cowrie-var:/cowrie/cowrie-git/var
+    stop_signal: SIGKILL
+    tty: true
     networks:
-      - default
+     - default
+    image: "mushorg/snare:latest"
 
 networks:
   default:
