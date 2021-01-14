@@ -10,8 +10,8 @@ services:
     stop_signal: SIGKILL
     tty: true
     networks:
-     - default
-    image: "mushorg/snare:latest"
+	- default
+    image: "honeypot-server:latest"
 
 networks:
   default:
