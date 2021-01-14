@@ -10,7 +10,7 @@ services:
     stop_signal: SIGKILL
     tty: true
     networks:
-	- default
+     - default
     image: "honeypot-server:latest"
 
 networks:
