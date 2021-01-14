@@ -10,17 +10,10 @@ pipeline {
                 sh '/usr/bin/docker-compose --version'
             }
         }
-        stage('Build') {
-            steps {
-                echo 'Building..'
-                sh 'echo ${BUILD_NUMBER}'
-                sh 'docker build --network main-overlay -f Dockerfile --tag cowrie-server:${BUILD_NUMBER} .'
-           }
-        }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'TAG=${BUILD_NUMBER} /usr/bin/docker-compose -p "honeypot" up -d'
+                sh 'TAG=${BUILD_NUMBER} /usr/bin/docker-compose -p "honeypot" up -d --build'
             }
         }
     }
