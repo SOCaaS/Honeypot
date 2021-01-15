@@ -11,9 +11,9 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 ADD . .
 RUN python3 setup.py install
 
-ARG PAGE_URL=facebook.com
+ARG PAGE_URL=example.com
 ENV PAGE_URL $PAGE_URL
-ENV PORT 443
+ENV PORT 80
 ENV TANNER tanner.mushmush.org
 
 RUN clone --target "https://$PAGE_URL" --max-depth 1
