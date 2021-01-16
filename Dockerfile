@@ -11,7 +11,7 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 ADD . .
 RUN python3 setup.py install
 
-ARG PAGE_URL=wordpress-uow.1ez.xyz
+ARG PAGE_URL=wordpress
 ENV PAGE_URL $PAGE_URL
 ENV PORT 80
 ENV TANNER tanner.mushmush.org
