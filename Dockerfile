@@ -16,6 +16,6 @@ ENV PAGE_URL $PAGE_URL
 ENV PORT 80
 ENV TANNER tanner.mushmush.org
 
-RUN clone --target "https://$PAGE_URL" --max-depth 1
+RUN clone --target "http://$PAGE_URL" --max-depth 1
 
 CMD snare --no-dorks true --auto-update false --host-ip 0.0.0.0 --port $PORT --page-dir "$PAGE_URL" --tanner $TANNER
