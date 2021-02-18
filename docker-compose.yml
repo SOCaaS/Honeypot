@@ -10,7 +10,8 @@ services:
     stop_signal: SIGKILL
     tty: true
     networks:
-     - default
+      default:
+        ipv4_address: 10.0.2.3
     image: "honeypot-server:latest"
 
 networks:
